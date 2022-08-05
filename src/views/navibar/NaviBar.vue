@@ -19,7 +19,7 @@
 
     <div id="avatar_container">
       <div id="bell_container">
-        <div>提醒</div>
+        <div>🔔</div>
       </div>
       <img id="avatar" src="https://avatars.githubusercontent.com/u/61966371?s=40&v=4" alt="">
     </div>
@@ -57,7 +57,7 @@ export default {
 
 #search_container{
   border: 1px solid #1d2534;
-  border-radius: 4px;
+  border-radius: 6px;
   width: 250px;
   min-height: 30px;
   text-align: left;
@@ -109,16 +109,14 @@ export default {
 
 #logo,#avatar{
   border-radius: 50%;
+  margin-right: 20px;
+  height: 30px;
 }
 
 #bell_container{
   font-size: 14px;
   color: #aac8e0;
   line-height: 60px;
-}
-
-#avatar{
-  margin-right: 20px;
 }
 
 
