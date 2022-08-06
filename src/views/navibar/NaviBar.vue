@@ -10,9 +10,9 @@
       <input id="search_container" v-model="search" placeholder="search ..."/>
 
       <div id="navis">
-        <router-link to="#">Issues</router-link>
-        <router-link to="#">Marketplace</router-link>
-        <router-link to="#">Explore</router-link>
+        <router-link to="/issues">Issues</router-link>
+        <router-link to="/marketplace">Marketplace</router-link>
+        <router-link to="/explore">Explore</router-link>
       </div>
     </div>
 
@@ -56,7 +56,7 @@ export default {
 }
 
 #search_container{
-  border: 1px solid #1d2534;
+  border: 1px solid #342f2f;
   border-radius: 6px;
   width: 250px;
   min-height: 30px;
@@ -78,7 +78,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  gap: 10px;
+  gap: 15px;
 }
 
 #navis *{

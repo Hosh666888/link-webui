@@ -19,10 +19,20 @@
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-
 }
 
-
+/*设置点击前的样式 */
+a{
+  text-decoration: none;
+  color: white;
+}
+/*设置点击后的样式 */
+.router-link-active {
+  text-decoration: none;
+}
+input{
+  color: white;
+}
 </style>
 <script>
 import NaviBar from "@/views/navibar/NaviBar";
