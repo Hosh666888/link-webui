@@ -18,27 +18,49 @@
 
 
     <div id="avatar_container">
-      <div id="bell_container">
-        <div>🔔</div>
+      <div v-if="user.nickName.length>0">
+        <div id="bell_container">
+          <div>🔔</div>
+        </div>
+        <img id="avatar" src="https://avatars.githubusercontent.com/u/61966371?s=40&v=4" alt="">
       </div>
-      <img id="avatar" src="https://avatars.githubusercontent.com/u/61966371?s=40&v=4" alt="">
+
+      <div v-else  style="color: #aac8e0;font-size: 14px;margin-right:20px" @click="loginInGithub">
+        Sign in
+      </div>
     </div>
+
   </div>
 
 
 </template>
 
 <script>
+import TokenUtil from "@/utils/TokenUtil";
+
 export default {
   name: "NaviBar",
   created() {
+    let loginUser = TokenUtil.getLoginUser();
+    if (loginUser != null) {
+      this.user.nickName = loginUser.nickName
+      this.user.avatarUrl = loginUser.avatarUrl
+    }
   },
   data() {
     return {
-      search: ''
+      search: '',
+      user: {
+        nickName: '',
+        avatarUrl: ''
+      }
     }
   },
-  methods: {}
+  methods: {
+    loginInGithub(){
+      window.location.replace('https://github.com/login/oauth/authorize?client_id=883857950cb7ee43a362')
+    }
+  }
 }
 </script>
 
@@ -52,10 +74,10 @@ export default {
 
   min-height: 60px;
   background-color: #161b22;
-  box-shadow: 0 20px 30px rgba(0,0,0,.4);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, .4);
 }
 
-#search_container{
+#search_container {
   border: 1px solid #342f2f;
   border-radius: 6px;
   width: 250px;
@@ -69,7 +91,7 @@ export default {
   padding-left: 5px;
 }
 
-#search_container:focus{
+#search_container:focus {
   width: 500px;
 }
 
@@ -81,7 +103,7 @@ export default {
   gap: 15px;
 }
 
-#navis *{
+#navis * {
   color: #aac8e0;
   font-size: 14px;
   text-decoration: none;
@@ -99,7 +121,7 @@ export default {
   margin-left: 20px;
 }
 
-#avatar_container{
+#avatar_container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -107,20 +129,17 @@ export default {
   gap: 15px;
 }
 
-#logo,#avatar{
+#logo, #avatar {
   border-radius: 50%;
   margin-right: 20px;
   height: 30px;
 }
 
-#bell_container{
+#bell_container {
   font-size: 14px;
   color: #aac8e0;
   line-height: 60px;
 }
-
-
-
 
 
 </style>

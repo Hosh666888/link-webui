@@ -10,9 +10,9 @@ import TokenUtil from "@/utils/TokenUtil";
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 let config = {
-  baseURL: process.env.baseURL || process.env.apiUrl || "http://localhost:99",
+  baseURL: "api",
   timeout: 60 * 1000, // Timeout
-  withCredentials: true, // Check cross-site Access-Control
+  // withCredentials: true, // Check cross-site Access-Control
   headers:{
     "Authorization":TokenUtil.getToken()
   }
@@ -49,23 +49,4 @@ _axios.interceptors.response.use(
   }
 );
 
-Plugin.install = function(Vue, options) {
-  Vue.axios = _axios;
-  window.axios = _axios;
-  Object.defineProperties(Vue.prototype, {
-    axios: {
-      get() {
-        return _axios;
-      }
-    },
-    $axios: {
-      get() {
-        return _axios;
-      }
-    },
-  });
-};
-
-Vue.use(Plugin)
-
-export default Plugin;
+export default _axios;

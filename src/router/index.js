@@ -16,6 +16,10 @@ const routes = [
   {
     path:"/home",
     component: ()=>import("../views/home/Home")
+  },
+  {
+    path:"/github/callback",
+    component:()=>import("../views/login/CallBack")
   }
 ]
 
