@@ -20,12 +20,16 @@ const routes = [
   {
     path:"/github/callback",
     component:()=>import("../views/login/CallBack")
+  },
+  {
+    path:"/article/new",
+    component:()=>import("../views/new/New")
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
+  // base: process.env.BASE_URL,
   routes
 })
 
